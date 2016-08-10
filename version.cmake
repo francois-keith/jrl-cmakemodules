@@ -63,7 +63,8 @@ MACRO(VERSION_COMPUTE)
     # No, there is no '.version' file. Deduce the version from git.
 
     # Search for git.
-    FIND_PROGRAM(GIT git)
+    FIND_PACKAGE(Git)
+    SET(GIT ${GIT_EXECUTABLE})
     IF(NOT GIT)
       MESSAGE("Warning: failed to compute the version number, git not found.")
       SET(PROJECT_VERSION UNKNOWN)
